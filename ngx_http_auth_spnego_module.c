@@ -755,7 +755,7 @@ static void ngx_http_auth_spnego_krb5_destroy_ccache(void *data) {
         goto done;
     }
 
-    krb5_cc_destroy(kcontext, ccache);
+#    krb5_cc_destroy(kcontext, ccache);
 done:
     if (kcontext)
         krb5_free_context(kcontext);
