@@ -1121,7 +1121,7 @@ end:
  * token too soon.
  */
 ngx_int_t ngx_http_auth_spnego_set_bogus_authorization(ngx_http_request_t *r) {
-    const char *bogus_passwd = "bogus_auth_gss_passwd";
+    const char *bogus_passwd = "dummy";
     ngx_str_t plain, encoded, final;
 
     if (r->headers_in.user.len == 0) {
