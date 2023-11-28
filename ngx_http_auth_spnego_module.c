@@ -1149,13 +1149,13 @@ ngx_int_t ngx_http_auth_spnego_set_bogus_authorization(ngx_http_request_t *r) {
 
     ngx_encode_base64(&encoded, &plain);
 
-    final.len = sizeof("Basic ") + encoded.len - 1;
+    final.len = sizeof("Negotiate") + encoded.len - 1;
     final.data = ngx_pnalloc(r->pool, final.len);
     if (NULL == final.data) {
         return NGX_ERROR;
     }
 
-    ngx_snprintf(final.data, final.len, "Basic %V", &encoded);
+    ngx_snprintf(final.data, final.len, "Negotiate %V", &encoded);
 
     /* WARNING clobbering authorization header value */
     r->headers_in.authorization->value.len = final.len;
